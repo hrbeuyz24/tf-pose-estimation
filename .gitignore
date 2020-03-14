@@ -115,6 +115,7 @@ models/trained/*/model-*.index
 models/trained/*/model-*.meta
 models/pretrained/resnet_v2_101/eval.graph
 models/pretrained/resnet_v2_101/train.graph
+models/test/
 src/pafprocess/pafprocess.py
 src/pafprocess/pafprocess_wrap.cpp
 src/pafprocess/pafprocess_wrap.cxx

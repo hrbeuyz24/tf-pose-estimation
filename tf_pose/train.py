@@ -43,7 +43,7 @@ if __name__ == '__main__':
     parser.add_argument('--quant-delay', type=int, default=-1)
     args = parser.parse_args()
 
-    modelpath = logpath = './models/train/'
+    modelpath = logpath = '../models/train/'
 
     if args.gpus <= 0:
         raise Exception('gpus <= 0')
@@ -167,6 +167,9 @@ if __name__ == '__main__':
     saver = tf.train.Saver(max_to_keep=1000)
     config = tf.ConfigProto(allow_soft_placement=True, log_device_placement=False)
     config.gpu_options.allow_growth = True
+
+    print("net variables nums : ", np.sum([np.prod(v.get_shape().as_list()) for v in tf.trainable_variables()]))
+
     with tf.Session(config=config) as sess:
         logger.info('model weights initialization')
         sess.run(tf.global_variables_initializer())
